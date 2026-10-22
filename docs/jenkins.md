@@ -54,6 +54,8 @@ Prerequis sur le noeud : Python 3.10+, Google Chrome, Git, Web Tours demarre.
 
 ## Resultat attendu
 
-- Build **UNSTABLE** lorsque des tests echouent (les 14 defauts connus sont
-  marques `xfail` et documentes par WT-67 a WT-71) ;
+- Build **SUCCESS** avec `31 passed, 14 xfailed` : les 14 defauts connus sont
+  marques `xfail` (documentes par WT-67 a WT-71) et ne cassent pas le build ;
+- Build **UNSTABLE** si un test echoue de facon inattendue (regression) ;
+- Build verifie : #4 dans Docker, SUCCESS en 2 min 07, execution Xray **WT-74** ;
 - un Test Execution Xray supplementaire a chaque build, rattache au plan **WT-65**.

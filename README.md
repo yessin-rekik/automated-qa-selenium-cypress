@@ -98,6 +98,7 @@ une suite stable).
 | Execution de reference | https://yessinrekik666.atlassian.net/browse/WT-66 |
 | Derniere execution Selenium | https://yessinrekik666.atlassian.net/browse/WT-72 |
 | Execution Cypress (comparaison) | https://yessinrekik666.atlassian.net/browse/WT-73 |
+| Execution lancee par Jenkins | https://yessinrekik666.atlassian.net/browse/WT-74 |
 | Bugs | WT-67 a WT-71 |
 | Rapport detaille | `docs/execution-report.md` |
 | Comparaison Selenium / Cypress | `docs/comparison-selenium-cypress.md` |
