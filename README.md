@@ -13,6 +13,8 @@ Projet de test complet du site de reservation de vols **Mercury Web Tours** :
 
 > **Nouveau sur le projet ?** Lire d'abord [`docs/GUIDE-QA.md`](docs/GUIDE-QA.md) :
 > tout le fonctionnement du projet QA explique simplement, depuis zero.
+> Puis [`docs/GUIDE-TESTS-AUTOMATISES.md`](docs/GUIDE-TESTS-AUTOMATISES.md) : comment
+> fonctionnent les tests Selenium et Cypress, fonction par fonction.
 
 ## Structure
 
@@ -29,6 +31,7 @@ hw_jira/
 │   ├── bugs.md                  # defauts detectes
 │   ├── execution-report.md      # rapport genere depuis junit.xml
 │   ├── GUIDE-QA.md              # le projet QA explique depuis zero
+│   ├── GUIDE-TESTS-AUTOMATISES.md  # Selenium/PyTest/Cypress : lecon + deroulement exact
 │   ├── comparison-selenium-cypress.md  # comparaison des deux outils
 │   └── jenkins.md               # mise en place de la CI
 ├── scripts/                     # outillage Jira / Xray / rapports
