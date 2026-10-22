@@ -51,6 +51,8 @@ def build_driver():
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         options.add_argument("--log-level=3")
+        if os.getenv("CHROME_BIN"):
+            options.binary_location = os.getenv("CHROME_BIN")
     options.add_argument("--window-size=1400,1000")
     remote = os.getenv("SELENIUM_REMOTE_URL")
     if remote:

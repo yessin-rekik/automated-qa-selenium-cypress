@@ -1,10 +1,15 @@
-﻿"""Publish the pytest results as an Xray Test Execution.
+"""Publish the pytest results as an Xray Test Execution.
 
-Usage: python scripts/results_to_xray.py [--junit PATH] [--plan KEY] [--env LABEL]
+Usage: python scripts/results_to_xray.py [--junit PATH] [--plan KEY] [--summary TEXT]
+
+Les tests sont retrouves par nom PyTest (xray_map.json) ou, pour Cypress, par
+l'identifiant present dans le titre ("FT-01 ..."). Un titre contenant "[BUG-"
+constate un defaut connu : il est publie FAILED comme les xfail PyTest.
 """
 import argparse
 import json
 import os
+import re
 import sys
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
@@ -39,9 +44,20 @@ def parse_junit(path):
                 results.append((name, "FAILED", f"Defaut confirme (xfail): {comment}"))
             else:
                 results.append((name, "TODO", comment))
+        elif "[BUG-" in name:
+            results.append((name, "FAILED", f"Defaut confirme: {name}"))
         else:
             results.append((name, "PASSED", ""))
     return results
+
+
+def xray_key(name, mapping):
+    if name in mapping["automated"]:
+        return mapping["automated"][name]
+    match = re.search(r"(?<![A-Z])([FEBP]T-[0-9]{2})(?![0-9])", name)
+    if match and match.group(1) in mapping["tests"]:
+        return mapping["tests"][match.group(1)]["key"]
+    return None
 
 
 def main():
@@ -53,13 +69,12 @@ def main():
     args = parser.parse_args()
 
     mapping = json.loads((ROOT / "scripts" / "xray_map.json").read_text(encoding="utf-8"))
-    automated = mapping["automated"]
 
     raw = parse_junit(args.junit)
     tests, unknown = [], []
     passed = failed = 0
     for name, status, comment in raw:
-        key = automated.get(name)
+        key = xray_key(name, mapping)
         if not key:
             unknown.append(name)
             continue
@@ -74,7 +89,7 @@ def main():
     payload = {
         "info": {
             "summary": f"{args.summary} - {now:%d/%m/%Y %H:%M}",
-            "description": ("Execution de la suite PyTest/Selenium (FT, ET, BT, PT). "
+            "description": (f"{args.summary}. "
                             f"{passed} tests PASSED, {failed} tests FAILED. "
                             f"Environnement: {args.environments}."),
             "project": os.environ.get("JIRA_PROJECT", "WT"),

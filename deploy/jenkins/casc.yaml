@@ -1,0 +1,53 @@
+jenkins:
+  systemMessage: "Jenkins - Projet de test Web Tours (Jira / Xray / Selenium)"
+  numExecutors: 2
+  mode: NORMAL
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "${JENKINS_ADMIN_PASSWORD}"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - string:
+              scope: GLOBAL
+              id: xray-client-id
+              secret: "${XRAY_CLIENT_ID}"
+              description: "Xray Cloud client id"
+          - string:
+              scope: GLOBAL
+              id: xray-client-secret
+              secret: "${XRAY_CLIENT_SECRET}"
+              description: "Xray Cloud client secret"
+
+jobs:
+  - script: |
+      pipelineJob('webtours-tests') {
+        description('Suite Selenium/PyTest du site Web Tours - plan Xray WT-65.')
+        definition {
+          cpsScm {
+            scm {
+              git {
+                remote {
+                  url('file:///workspace')
+                }
+                branch('*/main')
+              }
+            }
+            scriptPath('Jenkinsfile')
+          }
+        }
+        triggers {
+          scm('H/15 * * * *')
+        }
+      }

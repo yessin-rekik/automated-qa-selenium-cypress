@@ -11,3 +11,6 @@ def test_ft_00_application_is_available():
     response = requests.get(config.BASE_URL, timeout=15)
     assert response.status_code == 200
     assert "Web Tours" in response.text
+    # index.htm est statique : une page Perl CGI prouve que perl est disponible
+    cgi = requests.get(f"{config.CGI_URL}/welcome.pl?signOff=true", timeout=15)
+    assert cgi.status_code == 200, "CGI en erreur : perl est-il dans le PATH d'Apache ?"

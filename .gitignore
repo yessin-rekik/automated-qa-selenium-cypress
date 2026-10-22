@@ -1,5 +1,6 @@
-﻿# Secrets
+# Secrets
 /.env
+/.claude
 
 # Environnement Python
 /.venv/
@@ -21,3 +22,4 @@ _xray_probe*.py
 _xray_check.py
 _xray_import_debug.py
 
+/.venv-ci/

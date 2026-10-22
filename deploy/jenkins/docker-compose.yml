@@ -1,0 +1,27 @@
+services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: webtours-jenkins:latest
+    container_name: webtours-jenkins
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - ../..:/workspace
+    environment:
+      JENKINS_ADMIN_PASSWORD: ${JENKINS_ADMIN_PASSWORD:-admin}
+      XRAY_CLIENT_ID: ${XRAY_CLIENT_ID}
+      XRAY_CLIENT_SECRET: ${XRAY_CLIENT_SECRET}
+      WEBTOURS_URL: http://host.docker.internal:1080/WebTours/index.htm
+      WEBTOURS_CGI: http://host.docker.internal:1080/cgi-bin
+      HEADLESS: "1"
+      TZ: Africa/Tunis
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  jenkins_home:

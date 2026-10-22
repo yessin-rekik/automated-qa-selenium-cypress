@@ -1,4 +1,4 @@
-﻿"""Generate docs/execution-report.md from the pytest JUnit file + Xray mapping."""
+"""Generate docs/execution-report.md from the pytest JUnit file + Xray mapping."""
 import json
 import sys
 import xml.etree.ElementTree as ET
@@ -9,17 +9,20 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 
+def first_line(text):
+    lines = (text or "").strip().splitlines()
+    return lines[0][:160] if lines else ""
+
+
 def main():
     mapping = json.loads((ROOT / "scripts" / "xray_map.json").read_text(encoding="utf-8"))
-    by_automated = {v: k for k, v in mapping["automated"].items()}
-    sys.path.insert(0, str(ROOT / "scripts"))
-    from xray_catalog import CATALOG
-
-    catalog = {
-        t["automated"]: {"folder": t["folder"], "story": t["story"],
-                         "key": mapping["tests"][t["id"]]["key"]}
-        for t in CATALOG.values()
-    }
+    id_by_key = {t["key"]: tid for tid, t in mapping["tests"].items()}
+    catalog = {}
+    for name, key in mapping["automated"].items():
+        tid = id_by_key[key]
+        test = mapping["tests"][tid]
+        catalog[name] = {"id": tid, "folder": test["folder"],
+                         "story": test["story"], "key": key}
     plan = mapping["plan"]["key"]
 
     tree = ET.parse(ROOT / "webtours-tests" / "reports" / "junit.xml")
@@ -27,26 +30,27 @@ def main():
     by_folder = OrderedDict()
     for case in tree.iter("testcase"):
         name = case.get("name")
-        tid = by_automated.get(name, "FT-00")
-        info = catalog.get(name, {"folder": "/FT", "key": "WT-20", "story": "WT-7"})
+        info = catalog.get(name, {"id": "?", "folder": "-", "key": "-", "story": "-"})
+        tid = info["id"]
         status, message = "PASSED", ""
         if case.find("failure") is not None:
             status = "FAILED"
-            message = (case.find("failure").get("message") or "").splitlines()[0][:160]
+            message = first_line(case.find("failure").get("message"))
         elif case.find("error") is not None:
             status = "FAILED"
-            message = (case.find("error").get("message") or "").splitlines()[0][:160]
+            message = first_line(case.find("error").get("message"))
         elif case.find("skipped") is not None:
             skipped = case.find("skipped")
             status = "FAILED" if "xfail" in (skipped.get("type") or "") else "SKIPPED"
-            message = (skipped.get("message") or "").splitlines()[0][:160]
+            message = first_line(skipped.get("message"))
         counts[status] += 1
         by_folder.setdefault(info["folder"], Counter())[status] += 1
         rows.append((tid, name, info["folder"], info.get("story") or "-",
                      info.get("key", "-"), status, message))
         if status == "FAILED":
             failures.append((tid, name, message))
-    rows.sort(key=lambda r: r[0])
+    order = {"FT": 0, "ET": 1, "BT": 2, "PT": 3}
+    rows.sort(key=lambda r: (order.get(r[0][:2], 9), r[0]))
 
     now = datetime.now().strftime("%d/%m/%Y %H:%M")
     lines = [
@@ -96,7 +100,7 @@ def main():
         "principalement l'absence de validation cote serveur et l'absence de controle de session "
         "sur les pages CGI.",
         "- La validation cote client (fichiers `chooseFlightValidate.js` et `purchaseValidate.js`) "
-        "existe mais n'est pas activee : les formulaires sont generes avec `onsubmit=""`, "
+        "existe mais n'est pas activee : les formulaires sont generes avec `onsubmit=\"\"`, "
         "donc aucune verification n'est executee avant l'envoi.",
         "- Les tests marques `xfail` dans la suite documentent ces defauts : ils passeront "
         "automatiquement lorsque l'application sera corrigee.",

@@ -1,0 +1,13 @@
+{
+  "name": "webtours-cypress-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Suite Cypress de comparaison avec la suite Selenium/PyTest (Web Tours)",
+  "scripts": {
+    "test": "cypress run --browser electron",
+    "open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "13.17.0"
+  }
+}
