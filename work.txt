@@ -1,0 +1,21 @@
+Tester une application Web - Site de réservation de vol
+Web Tour
+installer "java-8"
+puis installer "strawberry-perl-5.10.1.0"
+Depuis ce lien cliquer sur 'startserver.bat' depuis cette endroit: D:\Web Tours 1.0\WebTours
+Ouvrir l'application: http://127.0.0.1:1080/WebTours/index.htm
+==============================================================
+Le but de ce projet et d'installer cette application et essayer d'écrire les différents tests
+par module et par dossier FT 'Fonctionnel testing' , ET 'Error testing' , BT 'Boundary testing',
+PT 'Permission testing' et puis de détecter les éventuels bugs
+==============================================================
+Tester une application web ‘Site de Réservation de vol, Site d’achat en ligne, …’:
+Part1
+ Création d’un projet sous JIRA contient le nom de l’application
+ Création des users stories
+ Création d’un plan de test sous Xray et assigner ces tests a ces users stories
+ Création d’un plan d’exécution et exécuter votre plan de test
+Part2
+ Création des tests automatiques pour cette application  via un outil a votre choix selenium et cypress avec comparison 
+ Executer/Lancer la suite de tests automatiques et analyser les résultats
+ mettre votre projet sur Git et lancer la site de tests via Jenkins

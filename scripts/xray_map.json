@@ -1,0 +1,481 @@
+{
+  "tests": {
+    "FT-01": {
+      "key": "WT-21",
+      "id": "10065",
+      "summary": "FT-01 - Connexion avec des identifiants valides",
+      "folder": "/FT/Authentification",
+      "story": "WT-7"
+    },
+    "FT-02": {
+      "key": "WT-22",
+      "id": "10066",
+      "summary": "FT-02 - Affichage du menu principal apres connexion",
+      "folder": "/FT/Authentification",
+      "story": "WT-7"
+    },
+    "FT-03": {
+      "key": "WT-23",
+      "id": "10067",
+      "summary": "FT-03 - Deconnexion de l'utilisateur",
+      "folder": "/FT/Authentification",
+      "story": "WT-8"
+    },
+    "FT-04": {
+      "key": "WT-24",
+      "id": "10068",
+      "summary": "FT-04 - Inscription d'un nouveau client puis connexion",
+      "folder": "/FT/Authentification",
+      "story": "WT-6"
+    },
+    "FT-05": {
+      "key": "WT-25",
+      "id": "10069",
+      "summary": "FT-05 - Accueil personnalise de l'utilisateur",
+      "folder": "/FT/Authentification",
+      "story": "WT-7"
+    },
+    "FT-06": {
+      "key": "WT-26",
+      "id": "10070",
+      "summary": "FT-06 - Recherche d'un vol aller simple",
+      "folder": "/FT/Recherche",
+      "story": "WT-9"
+    },
+    "FT-07": {
+      "key": "WT-27",
+      "id": "10071",
+      "summary": "FT-07 - Recherche d'un vol aller-retour",
+      "folder": "/FT/Recherche",
+      "story": "WT-10"
+    },
+    "FT-08": {
+      "key": "WT-28",
+      "id": "10072",
+      "summary": "FT-08 - Liste des villes de depart et d'arrivee",
+      "folder": "/FT/Recherche",
+      "story": "WT-9"
+    },
+    "FT-09": {
+      "key": "WT-29",
+      "id": "10073",
+      "summary": "FT-09 - Options de siege et de classe disponibles",
+      "folder": "/FT/Recherche",
+      "story": "WT-11"
+    },
+    "FT-10": {
+      "key": "WT-30",
+      "id": "10074",
+      "summary": "FT-10 - Reservation complete et facture",
+      "folder": "/FT/Reservation",
+      "story": "WT-13"
+    },
+    "FT-11": {
+      "key": "WT-31",
+      "id": "10075",
+      "summary": "FT-11 - Facture contenant les informations de paiement",
+      "folder": "/FT/Reservation",
+      "story": "WT-14"
+    },
+    "FT-12": {
+      "key": "WT-32",
+      "id": "10076",
+      "summary": "FT-12 - Total calcule selon le nombre de passagers",
+      "folder": "/FT/Reservation",
+      "story": "WT-13"
+    },
+    "FT-13": {
+      "key": "WT-33",
+      "id": "10077",
+      "summary": "FT-13 - Classe choisie reprise sur la facture",
+      "folder": "/FT/Reservation",
+      "story": "WT-11"
+    },
+    "FT-14": {
+      "key": "WT-34",
+      "id": "10078",
+      "summary": "FT-14 - La reservation apparait dans l'itineraire",
+      "folder": "/FT/Itineraire",
+      "story": "WT-16"
+    },
+    "FT-15": {
+      "key": "WT-35",
+      "id": "10079",
+      "summary": "FT-15 - Annulation d'une reservation",
+      "folder": "/FT/Itineraire",
+      "story": "WT-17"
+    },
+    "FT-16": {
+      "key": "WT-36",
+      "id": "10080",
+      "summary": "FT-16 - Annulation de toutes les reservations",
+      "folder": "/FT/Itineraire",
+      "story": "WT-18"
+    },
+    "FT-17": {
+      "key": "WT-37",
+      "id": "10081",
+      "summary": "FT-17 - Message d'itineraire vide",
+      "folder": "/FT/Itineraire",
+      "story": "WT-16"
+    },
+    "ET-01": {
+      "key": "WT-38",
+      "id": "10082",
+      "summary": "ET-01 - Connexion avec un mot de passe errone",
+      "folder": "/ET/Authentification",
+      "story": "WT-7"
+    },
+    "ET-02": {
+      "key": "WT-39",
+      "id": "10083",
+      "summary": "ET-02 - Connexion avec un utilisateur inconnu",
+      "folder": "/ET/Authentification",
+      "story": "WT-7"
+    },
+    "ET-03": {
+      "key": "WT-40",
+      "id": "10084",
+      "summary": "ET-03 - Connexion avec des champs vides",
+      "folder": "/ET/Authentification",
+      "story": "WT-7"
+    },
+    "ET-04": {
+      "key": "WT-41",
+      "id": "10085",
+      "summary": "ET-04 - Inscription avec confirmation de mot de passe differente",
+      "folder": "/ET/Authentification",
+      "story": "WT-6"
+    },
+    "ET-05": {
+      "key": "WT-42",
+      "id": "10086",
+      "summary": "ET-05 - Inscription avec un nom d'utilisateur existant",
+      "folder": "/ET/Authentification",
+      "story": "WT-6"
+    },
+    "ET-06": {
+      "key": "WT-43",
+      "id": "10087",
+      "summary": "ET-06 - Inscription avec un nom d'utilisateur non alphanumerique",
+      "folder": "/ET/Authentification",
+      "story": "WT-6"
+    },
+    "ET-07": {
+      "key": "WT-44",
+      "id": "10088",
+      "summary": "ET-07 - Recherche avec une date au format invalide",
+      "folder": "/ET/Recherche",
+      "story": "WT-12"
+    },
+    "ET-08": {
+      "key": "WT-45",
+      "id": "10089",
+      "summary": "ET-08 - Recherche avec une date de depart passee",
+      "folder": "/ET/Recherche",
+      "story": "WT-12"
+    },
+    "ET-09": {
+      "key": "WT-46",
+      "id": "10090",
+      "summary": "ET-09 - Recherche avec la meme ville de depart et d'arrivee",
+      "folder": "/ET/Recherche",
+      "story": "WT-12"
+    },
+    "ET-10": {
+      "key": "WT-47",
+      "id": "10091",
+      "summary": "ET-10 - Recherche avec une date de retour anterieure au depart",
+      "folder": "/ET/Recherche",
+      "story": "WT-12"
+    },
+    "ET-11": {
+      "key": "WT-48",
+      "id": "10092",
+      "summary": "ET-11 - Paiement sans numero de carte",
+      "folder": "/ET/Paiement",
+      "story": "WT-15"
+    },
+    "ET-12": {
+      "key": "WT-49",
+      "id": "10093",
+      "summary": "ET-12 - Paiement avec une carte non numerique",
+      "folder": "/ET/Paiement",
+      "story": "WT-15"
+    },
+    "ET-13": {
+      "key": "WT-50",
+      "id": "10094",
+      "summary": "ET-13 - Paiement avec un mois d'expiration invalide",
+      "folder": "/ET/Paiement",
+      "story": "WT-15"
+    },
+    "ET-14": {
+      "key": "WT-51",
+      "id": "10095",
+      "summary": "ET-14 - Paiement avec un nom vide",
+      "folder": "/ET/Paiement",
+      "story": "WT-15"
+    },
+    "BT-01": {
+      "key": "WT-52",
+      "id": "10096",
+      "summary": "BT-01 - Limite de 14 caracteres du nom d'utilisateur",
+      "folder": "/BT",
+      "story": "WT-6"
+    },
+    "BT-02": {
+      "key": "WT-53",
+      "id": "10097",
+      "summary": "BT-02 - Limite de 20 caracteres du numero de carte",
+      "folder": "/BT",
+      "story": "WT-15"
+    },
+    "BT-03": {
+      "key": "WT-54",
+      "id": "10098",
+      "summary": "BT-03 - Borne basse valide: 1 passager",
+      "folder": "/BT",
+      "story": "WT-12"
+    },
+    "BT-04": {
+      "key": "WT-55",
+      "id": "10099",
+      "summary": "BT-04 - Borne invalide: 0 passager",
+      "folder": "/BT",
+      "story": "WT-12"
+    },
+    "BT-05": {
+      "key": "WT-56",
+      "id": "10100",
+      "summary": "BT-05 - Valeur non numerique du nombre de passagers",
+      "folder": "/BT",
+      "story": "WT-12"
+    },
+    "BT-06": {
+      "key": "WT-57",
+      "id": "10101",
+      "summary": "BT-06 - Borne haute de saisie: 8 passagers",
+      "folder": "/BT",
+      "story": "WT-12"
+    },
+    "BT-07": {
+      "key": "WT-58",
+      "id": "10102",
+      "summary": "BT-07 - Valeur extreme: 999 passagers",
+      "folder": "/BT",
+      "story": "WT-12"
+    },
+    "BT-08": {
+      "key": "WT-59",
+      "id": "10103",
+      "summary": "BT-08 - Date inexistante: 29/02/2025",
+      "folder": "/BT",
+      "story": "WT-12"
+    },
+    "PT-01": {
+      "key": "WT-60",
+      "id": "10104",
+      "summary": "PT-01 - Acces direct a l'itineraire sans session",
+      "folder": "/PT",
+      "story": "WT-19"
+    },
+    "PT-02": {
+      "key": "WT-61",
+      "id": "10105",
+      "summary": "PT-02 - Acces direct a la recherche de vols sans session",
+      "folder": "/PT",
+      "story": "WT-19"
+    },
+    "PT-03": {
+      "key": "WT-62",
+      "id": "10106",
+      "summary": "PT-03 - Pas de fuite d'information sur la page de profil anonyme",
+      "folder": "/PT",
+      "story": "WT-19"
+    },
+    "PT-04": {
+      "key": "WT-63",
+      "id": "10107",
+      "summary": "PT-04 - Isolation des reservations entre clients",
+      "folder": "/PT",
+      "story": "WT-19"
+    },
+    "PT-05": {
+      "key": "WT-64",
+      "id": "10108",
+      "summary": "PT-05 - Reservations inaccessibles apres deconnexion",
+      "folder": "/PT",
+      "story": "WT-19"
+    },
+    "FT-00": {
+      "key": "WT-20",
+      "id": "10064",
+      "summary": "FT-00 - Smoke: l'application Web Tours est accessible",
+      "folder": "/FT",
+      "story": null
+    }
+  },
+  "automated": {
+    "test_ft_01_login_with_valid_credentials": "WT-21",
+    "test_ft_02_logged_in_user_sees_main_menu": "WT-22",
+    "test_ft_03_sign_off_returns_to_login": "WT-23",
+    "test_ft_04_register_then_login": "WT-24",
+    "test_ft_05_home_page_welcomes_the_user": "WT-25",
+    "test_ft_06_search_flights_one_way": "WT-26",
+    "test_ft_07_search_flights_roundtrip": "WT-27",
+    "test_ft_08_city_lists_are_complete": "WT-28",
+    "test_ft_09_seat_and_class_options_are_available": "WT-29",
+    "test_ft_10_complete_booking_shows_invoice": "WT-30",
+    "test_ft_11_invoice_contains_payment_information": "WT-31",
+    "test_ft_12_total_depends_on_passenger_count": "WT-32",
+    "test_ft_13_seat_class_is_used_in_invoice": "WT-33",
+    "test_ft_14_booking_appears_in_itinerary": "WT-34",
+    "test_ft_15_cancel_a_single_reservation": "WT-35",
+    "test_ft_16_cancel_all_reservations": "WT-36",
+    "test_ft_17_empty_itinerary_message": "WT-37",
+    "test_et_01_wrong_password": "WT-38",
+    "test_et_02_unknown_user": "WT-39",
+    "test_et_03_empty_credentials_are_rejected": "WT-40",
+    "test_et_04_registration_password_mismatch": "WT-41",
+    "test_et_05_registration_duplicate_username": "WT-42",
+    "test_et_06_registration_non_alphanumeric_username": "WT-43",
+    "test_et_07_invalid_date_format_is_rejected": "WT-44",
+    "test_et_08_past_departure_date_is_rejected": "WT-45",
+    "test_et_09_same_departure_and_arrival_city_is_rejected": "WT-46",
+    "test_et_10_return_before_departure_is_rejected": "WT-47",
+    "test_et_11_payment_without_credit_card_is_rejected": "WT-48",
+    "test_et_12_payment_with_non_numeric_card_is_rejected": "WT-49",
+    "test_et_13_payment_with_invalid_expiration_month_is_rejected": "WT-50",
+    "test_et_14_payment_with_empty_first_name_is_rejected": "WT-51",
+    "test_bt_01_username_is_limited_to_14_characters": "WT-52",
+    "test_bt_02_credit_card_is_limited_to_20_characters": "WT-53",
+    "test_bt_03_one_passenger_is_the_lower_valid_boundary": "WT-54",
+    "test_bt_04_zero_passenger_is_rejected": "WT-55",
+    "test_bt_05_non_numeric_passenger_count_is_rejected": "WT-56",
+    "test_bt_06_eight_passengers_is_the_upper_input_boundary": "WT-57",
+    "test_bt_07_huge_passenger_count_is_rejected": "WT-58",
+    "test_bt_08_non_existent_date_is_rejected": "WT-59",
+    "test_pt_01_itinerary_requires_authentication": "WT-60",
+    "test_pt_02_flight_search_requires_authentication": "WT-61",
+    "test_pt_03_anonymous_profile_page_does_not_leak_session": "WT-62",
+    "test_pt_04_users_cannot_see_each_others_reservations": "WT-63",
+    "test_pt_05_reservations_are_not_available_after_sign_off": "WT-64",
+    "test_ft_00_application_is_available": "WT-20"
+  },
+  "folders": {
+    "/FT/Authentification": [
+      "WT-21",
+      "WT-22",
+      "WT-23",
+      "WT-24",
+      "WT-25",
+      "WT-21",
+      "WT-22",
+      "WT-23",
+      "WT-24",
+      "WT-25"
+    ],
+    "/FT/Recherche": [
+      "WT-26",
+      "WT-27",
+      "WT-28",
+      "WT-29",
+      "WT-26",
+      "WT-27",
+      "WT-28",
+      "WT-29"
+    ],
+    "/FT/Reservation": [
+      "WT-30",
+      "WT-31",
+      "WT-32",
+      "WT-33",
+      "WT-30",
+      "WT-31",
+      "WT-32",
+      "WT-33"
+    ],
+    "/FT/Itineraire": [
+      "WT-34",
+      "WT-35",
+      "WT-36",
+      "WT-37",
+      "WT-34",
+      "WT-35",
+      "WT-36",
+      "WT-37"
+    ],
+    "/ET/Authentification": [
+      "WT-38",
+      "WT-39",
+      "WT-40",
+      "WT-41",
+      "WT-42",
+      "WT-43",
+      "WT-38",
+      "WT-39",
+      "WT-40",
+      "WT-41",
+      "WT-42",
+      "WT-43"
+    ],
+    "/ET/Recherche": [
+      "WT-44",
+      "WT-45",
+      "WT-46",
+      "WT-47",
+      "WT-44",
+      "WT-45",
+      "WT-46",
+      "WT-47"
+    ],
+    "/ET/Paiement": [
+      "WT-48",
+      "WT-49",
+      "WT-50",
+      "WT-51",
+      "WT-48",
+      "WT-49",
+      "WT-50",
+      "WT-51"
+    ],
+    "/BT": [
+      "WT-52",
+      "WT-53",
+      "WT-54",
+      "WT-55",
+      "WT-56",
+      "WT-57",
+      "WT-58",
+      "WT-59",
+      "WT-52",
+      "WT-53",
+      "WT-54",
+      "WT-55",
+      "WT-56",
+      "WT-57",
+      "WT-58",
+      "WT-59"
+    ],
+    "/PT": [
+      "WT-60",
+      "WT-61",
+      "WT-62",
+      "WT-63",
+      "WT-64",
+      "WT-60",
+      "WT-61",
+      "WT-62",
+      "WT-63",
+      "WT-64"
+    ],
+    "/FT": [
+      "WT-20"
+    ]
+  },
+  "plan": {
+    "key": "WT-65",
+    "id": "10109"
+  }
+}

@@ -1,0 +1,23 @@
+﻿# Secrets
+/.env
+
+# Environnement Python
+/.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Rapports generes
+webtours-tests/reports/
+
+# Application tierce (installeur + serveur)
+/WebTours/
+*.msi
+
+# Fichiers d'exploration temporaires
+_explore/
+_explore*.py
+_xray_probe*.py
+_xray_check.py
+_xray_import_debug.py
+
