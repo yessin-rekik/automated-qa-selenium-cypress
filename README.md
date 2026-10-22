@@ -11,6 +11,9 @@ Projet de test complet du site de reservation de vols **Mercury Web Tours** :
 - **Jenkins** : `Jenkinsfile` + Jenkins Docker pre-configure (`deploy/jenkins/`) ;
 - **Git** : depot versionne.
 
+> **Nouveau sur le projet ?** Lire d'abord [`docs/GUIDE-QA.md`](docs/GUIDE-QA.md) :
+> tout le fonctionnement du projet QA explique simplement, depuis zero.
+
 ## Structure
 
 ```
@@ -25,6 +28,7 @@ hw_jira/
 │   ├── test-plan.md             # plan de test et tracabilite
 │   ├── bugs.md                  # defauts detectes
 │   ├── execution-report.md      # rapport genere depuis junit.xml
+│   ├── GUIDE-QA.md              # le projet QA explique depuis zero
 │   ├── comparison-selenium-cypress.md  # comparaison des deux outils
 │   └── jenkins.md               # mise en place de la CI
 ├── scripts/                     # outillage Jira / Xray / rapports
